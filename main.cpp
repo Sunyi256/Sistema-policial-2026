@@ -1,4 +1,4 @@
-
+#include "funcoes.h"
 
 using namespace std;
 
