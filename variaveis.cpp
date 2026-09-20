@@ -7,7 +7,7 @@ struct Pessoa
     char nome[100];
     int idade;
     char cidade[50];
-} listaPessoas;
+} listaPessoas[10000];
 
 struct Ocorrencia
 {
@@ -16,7 +16,7 @@ struct Ocorrencia
     char local[100];
     int gravidade;
     int ano;
-};
+} listaOcorrencias[5000];
 
 struct Evidencia
 {
@@ -24,6 +24,6 @@ struct Evidencia
     int idOcorrencia;
     char descricao[100];
     int relevancia;
-};
+} listaEvidencias[20000];
 
 #endif

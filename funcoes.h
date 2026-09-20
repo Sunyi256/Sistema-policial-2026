@@ -7,6 +7,19 @@
 #include <ctime>
 
 using namespace std;
+
+void stringParaChar(char *destino, const char *origem) // talvez eu tenha ido um pouco longe demais, mas eu fiz uma função que converte string pra char array, caso seja necessário
+{                                                      // origem é a string que você quer converter, destino é o char array que vai receber a string convertida
+    int i = 0;
+
+    while (origem[i] != '\0')
+    {
+        destino[i] = origem[i];
+        i++;
+    }
+
+    destino[i] = '\0';
+}
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[])
 {
     string nomes[6] = {"Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda"};
@@ -14,45 +27,72 @@ void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPess
     srand(time(0));
     for (int i = 0; quantidadePessoas > i; i++)
     {
+        string nomeEscolhido = nomes[rand() % 6];
+        string cidadeEscolhida = cidades[rand() % 19];
         listaPessoas[i].id = i;
-        listaPessoas[i].nome = nomes[rand() % 6];
+        stringParaChar(listaPessoas[i].nome, nomeEscolhido.c_str());
         listaPessoas[i].idade = rand() % 100;
-        listaPessoas[i].cidade = cidades[rand() % 19];
+        stringParaChar(listaPessoas[i].cidade, cidadeEscolhida.c_str());
     }
 };
 
-void cadastrandoPessoaManual(struct Pessoa pessoal)
+void cadastrandoPessoaManual(struct Pessoa pessoal) {
+
+};
+
+void cadastrandoOcorrenciaManual(struct Ocorrencia ocorrencia) {
+};
+void cadastrandoOcorrenciaAleatoria(int quantidadeOcorrencias, struct Ocorrencia listaOcorrencias[])
 {
-    int idP, idadeP;
-    string nome, cidade;
-    if (listaPessoas[1].id == 1)
-    { // caso o cadastro de pessoas aleatórias tenha sido usada, ele adiciona essa pessoa dentro da lista a partir da última posição
+    string tipos[5] = {"Roubo", "Assalto", "Homicidio", "Sequestro", "Tráfico de drogas"};
+    string locais[10] = {"Rua", "Avenida", "Praça", "Parque", "Shopping", "Escola", "Hospital", "Estádio", "Igreja", "Terminal de ônibus"};
+    srand(time(0));
+    for (int i = 0; quantidadeOcorrencias > i; i++)
+    {
+        string tipoEscolhido = tipos[rand() % 5];
+        string localEscolhido = locais[rand() % 10];
+        listaOcorrencias[i].id = i;
+        stringParaChar(listaOcorrencias[i].tipo, tipoEscolhido.c_str()); //.c_str() converte string para const char*, que é o que a função stringParaChar espera como argumento
+        stringParaChar(listaOcorrencias[i].local, localEscolhido.c_str());
+        listaOcorrencias[i].gravidade = rand() % 5 + 1;
+        listaOcorrencias[i].ano = rand() % 10 + 2010;
     }
-    else
-    { // ou listaPessoas[1].id é 1 ou 0, caso seja 0, a lista não foi acionada, ou seja, ele é o primeiro elemento do vetor
+};
+
+void cadastrandoEvidenciaManual(struct Evidencia evidencia) {
+};
+
+void cadastrandoEvidenciaAleatoria(int quantidadeEvidencias, struct Evidencia listaEvidencias[])
+{
+    string descricoes[9] = {"arma do crime", "carta de ameaça", "câmera de segurança", "impressão digital", "testemunha ocular", "vídeo de celular", "arma de fogo", "arma branca", "objeto suspeito"};
+    srand(time(0));
+    for (int i = 0; quantidadeEvidencias > i; i++)
+    {
+        string descricaoEscolhida = descricoes[rand() % 9];
+        listaEvidencias[i].id = i;
+        stringParaChar(listaEvidencias[i].descricao, descricaoEscolhida.c_str());
+        listaEvidencias[i].idOcorrencia = rand() % quantidadeEvidencias;
     }
 };
 
 void menu()
 {
 
-    cout << "Menu de Opcoes:\n";
-    cout << "1. Cadastrar Pessoas Aleatorias\n";
-    cout << "2. Cadastrar Pessoa Manualmente\n";
-    cout << "3. Cadastrar ocorrencia\n";
-    cout << "4. Cadastrar evidencia\n";
+    cout << "1. Cadastrar Pessoas\n";
+    cout << "2. Cadastrar Ocorrencias\n";
+    cout << "3. Cadastrar Evidencias\n";
 
-    cout << "5. Buscar Pessoas\n";
-    cout << "6. Buscar Ocorrencias\n";
+    cout << "4. Buscar Pessoas\n";
+    cout << "5. Buscar Ocorrencias\n";
 
-    cout << "7 - Ordenar pessoas\n";
-    cout << "8 - Ordenar ocorrencias\n";
+    cout << "6 - Ordenar pessoas\n";
+    cout << "7 - Ordenar ocorrencias\n";
 
-    cout << "9 - Listar evidencias de uma ocorrencia\n";
+    cout << "8 - Listar evidencias de uma ocorrencia\n";
 
-    cout << "10 - Analisar ocorrencia\n";
+    cout << "9 - Analisar ocorrencia\n";
 
-    cout << "11 - Relatorio de desempenho\n";
+    cout << "10 - Relatorio de desempenho\n";
 
     cout << "0 - Encerrar programa\n";
     cout << "Escolha uma opcao: ";
@@ -61,17 +101,69 @@ void menu()
     switch (escolha)
     {
     case 1:
-        int quantidadePessoas;
-        cout << "Escolha a quantidade de pessoas a serem cadastradas: ";
-        cin >> quantidadePessoas;
-        cadastrandoPessoasAleatorias(quantidadePessoas, listaPessoas);
-        break;
+        cout << "1. Cadastrar Pessoas Aleatorias\n";
+        cout << "2. Cadastrar Pessoa Manualmente\n";
+        int escolha1;
+        cin >> escolha1;
+        switch (escolha1)
+        {
+        case 1:
+            int quantidadePessoas;
+            cout << "Escolha a quantidade de pessoas a serem cadastradas: ";
+            cin >> quantidadePessoas;
+            cadastrandoPessoasAleatorias(quantidadePessoas, listaPessoas);
+            menu();
+        case 2:
+            cadastrandoPessoaManual(listaPessoas[0]);
+            menu();
+        default:
+            cout << "Opcao invalida. Tente novamente.\n";
+            menu();
+        }
+        menu();
     case 2:
-        cadastrandoPessoaManual(listaPessoas[0]);
-        break;
+        cout << "1. Cadastrar Ocorrencias Aleatorias\n";
+        cout << "2. Cadastrar Ocorrencia Manualmente\n";
+        cin >> escolha1;
+        switch (escolha1)
+        {
+        case 1:
+            int quantidadeOcorrencias;
+            cout << "Escolha a quantidade de ocorrencias a serem cadastradas: ";
+            cin >> quantidadeOcorrencias;
+            cadastrandoOcorrenciaAleatoria(quantidadeOcorrencias, listaOcorrencias);
+            menu();
+        case 2:
+            cadastrandoOcorrenciaManual(listaOcorrencias[0]);
+            menu();
+        default:
+            cout << "Opcao invalida. Tente novamente.\n";
+            menu();
+        }
+        menu();
+    case 3:
+        cout << "1. Cadastrar Evidencias Aleatorias\n";
+        cout << "2. Cadastrar Evidencia Manualmente\n";
+        cin >> escolha1;
+        switch (escolha1)
+        {
+        case 1:
+            int quantidadeEvidencias;
+            cout << "Escolha a quantidade de evidencias a serem cadastradas: ";
+            cin >> quantidadeEvidencias;
+            cadastrandoEvidenciaAleatoria(quantidadeEvidencias, listaEvidencias);
+            menu();
+        case 2:
+            cadastrandoEvidenciaManual(listaEvidencias[0]);
+            menu();
+        default:
+            cout << "Opcao invalida. Tente novamente.\n";
+            menu();
+        }
+        menu();
     default:
         cout << "Opcao invalida. Tente novamente.\n";
-        void menu();
+        menu();
     };
 }
 
