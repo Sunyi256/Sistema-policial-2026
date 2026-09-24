@@ -5,6 +5,8 @@
 #include <chrono>
 #include <thread>
 #include <ctime>
+#include "strigparachar.h"
+#include "busca.h"
 
 using namespace std;
 
@@ -18,6 +20,11 @@ void cadastrandoOcorrenciaAleatoria(int quantidadeOcorrencias, struct Ocorrencia
 void cadastrandoEvidenciaManual(struct Evidencia evidencia);
 
 void cadastrandoEvidenciaAleatoria(int quantidadeEvidencias, struct Evidencia listaEvidencias[]);
+void strigparachar( char *destino, const char *origem);
+template <typename T>
+int Buscal(T vet[], T target, int tamanho);
+template <typename T>
+int Buscabi(T vet[], T target, int tamanho);
 void menu();
 
 #endif

@@ -1,25 +1,12 @@
 #include "funcoes.h"
 #include "variaveis.cpp"
+srand(time(0));
 
 using namespace std;
-
-void stringParaChar(char *destino, const char *origem) // talvez eu tenha ido um pouco longe demais, mas eu fiz uma função que converte string pra char array, caso seja necessário
-{                                                      // origem é a string que você quer converter, destino é o char array que vai receber a string convertida
-    int i = 0;
-
-    while (origem[i] != '\0')
-    {
-        destino[i] = origem[i];
-        i++;
-    }
-
-    destino[i] = '\0';
-}
 
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[]){
     string nomes[6] = {"Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda"};
     string cidades[19] = {"Sao Paulo", "Rio de Janeiro", "Belo Horizonte", "Salvador", "Curitiba", "Porto Alegre", "Recife", "Fortaleza", "Brasilia", "Campinas", "Ribeirao Preto", "Juiz de Fora", "Joinville", "Londrina", "Blumenau", "Caxias do Sul", "Montes Claros", "Petrolina", "Uberlandia"};
-    srand(time(0));
     for (int i = 0; quantidadePessoas > i; i++)
     {
         string nomeEscolhido = nomes[rand() % 6];
@@ -38,7 +25,6 @@ void cadastrandoOcorrenciaAleatoria(int quantidadeOcorrencias, struct Ocorrencia
 {
     string tipos[5] = {"Roubo", "Assalto", "Homicidio", "Sequestro", "Tráfico de drogas"};
     string locais[10] = {"Rua", "Avenida", "Praça", "Parque", "Shopping", "Escola", "Hospital", "Estádio", "Igreja", "Terminal de ônibus"};
-    srand(time(0));
     for (int i = 0; quantidadeOcorrencias > i; i++)
     {
         string tipoEscolhido = tipos[rand() % 5];
@@ -54,7 +40,6 @@ void cadastrandoOcorrenciaAleatoria(int quantidadeOcorrencias, struct Ocorrencia
 void cadastrandoEvidenciaAleatoria(int quantidadeEvidencias, struct Evidencia listaEvidencias[])
 {
     string descricoes[9] = {"arma do crime", "carta de ameaça", "câmera de segurança", "impressão digital", "testemunha ocular", "vídeo de celular", "arma de fogo", "arma branca", "objeto suspeito"};
-    srand(time(0));
     for (int i = 0; quantidadeEvidencias > i; i++)
     {
         string descricaoEscolhida = descricoes[rand() % 9];
