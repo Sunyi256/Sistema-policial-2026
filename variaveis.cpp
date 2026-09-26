@@ -1,29 +1,5 @@
-#ifndef VARIAVEIS_CPP
-#define VARIAVEIS_CPP
+#include "variaveis.h"
 
-struct Pessoa
-{
-    int id;
-    char nome[100];
-    int idade;
-    char cidade[50];
-} listaPessoas[10000];
-
-struct Ocorrencia
-{
-    int id;
-    char tipo[50];
-    char local[100];
-    int gravidade;
-    int ano;
-} listaOcorrencias[5000];
-
-struct Evidencia
-{
-    int id;
-    int idOcorrencia;
-    char descricao[100];
-    int relevancia;
-} listaEvidencias[20000];
-
-#endif
+Pessoa listaPessoas[MAX_PESSOAS];
+Ocorrencia listaOcorrencias[MAX_OCORRENCIAS];
+Evidencia listaEvidencias[MAX_EVIDENCIAS];
