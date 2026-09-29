@@ -8,6 +8,7 @@
 #include "stringParaChar.h"
 #include "busca.h"
 #include <ctime>
+#include <limits>
 
 using namespace std;
 

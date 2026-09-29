@@ -1,5 +1,4 @@
 #include "funcoes.h"
-#include <limits>
 
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[])
 {
