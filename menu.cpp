@@ -120,6 +120,8 @@ void menu()
 void printMenu()
 {
     printSeparator();
+    cout<<"        MENU";
+    printSeparator();
     for(int i = 0; i<10; i++)
     {
         cout << i+1 << "." << textmenu[i]<< '\n';
@@ -139,29 +141,74 @@ void printSeparator()
 
 void choiceMenu()
 {
-    int choice;
-    cin>>choice;
-    switch(choice)
+    int input = choiceInput(0, 10);
+    printSeparator();
+    switch(input)
     {
         case 1:
+            cout<<"1. Cadastro Manual"<<'\n';
+            cout<<"2. Cadastro Automatico (DEV)"<<'\n';
+            input = choiceInput(1,2);
+            if(input==1)
+            {
+
+            }
+            else
+            {
+                
+            }
+
         break;
         case 2:
+
         break;
         case 3:
+
         break;
         case 4:
+
         break;
         case 5:
+
         break;
         case 6:
+
         break;
         case 7:
+
         break;
         case 8:
+
         break;
         case 9:
+
         break;
         case 10:
+
+        break;
+        case 0:
+        
+        break;
+        default:
         break;
     }
+}
+
+int choiceInput(int min, int max)
+{
+    int choice;
+    bool checkifvalid = false;
+    do
+    {
+        cin>>choice;
+        if(choice>=min && choice<=max)
+        {
+            checkifvalid = true;
+        }
+        else
+        {
+            cout<<"Tente novamente.";
+        }
+    } while(!checkifvalid);
+    return choice;
 }
