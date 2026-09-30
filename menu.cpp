@@ -3,7 +3,6 @@ string textmenu[10] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Ev
 using namespace std;
 void menu()
 {
-    int escolha;
     int quantidadeEvidencias = 0;
     int quantidadeOcorrencias = 0;
     int quantidadePessoas = 0;
@@ -11,6 +10,7 @@ void menu()
     while (true)
     {
         printMenu();
+        choiceMenu();
         if (!(cin >> escolha) || escolha == 0)
         {
             return;
@@ -135,4 +135,33 @@ void printSeparator()
         cout<<'=';
     }
     cout<<'\n';
+}
+
+void choiceMenu()
+{
+    int choice;
+    cin>>choice;
+    switch(choice)
+    {
+        case 1:
+        break;
+        case 2:
+        break;
+        case 3:
+        break;
+        case 4:
+        break;
+        case 5:
+        break;
+        case 6:
+        break;
+        case 7:
+        break;
+        case 8:
+        break;
+        case 9:
+        break;
+        case 10:
+        break;
+    }
 }
