@@ -1,5 +1,5 @@
 #ifndef SEARCHING_ALGORITHMS_H
 #define SEARCHING_ALGORITHMS_H
-#include "linear_search.h"
-#include "binary_search.h"
+#include "search_binary.h"
+#include "search_linear.h"
 #endif
