@@ -1,5 +1,5 @@
 #include "funcoes.h"
-
+string textmenu[10] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Evidencias","Buscar Pessoas", "Buscar Ocorrencias", "Ordenar pessoas","Ordenar ocorrencias","Listar evidencias de uma ocorrencia","Analisar ocorrencia","Relatorio de desempenho"}
 using namespace std;
 void menu()
 {
@@ -10,18 +10,7 @@ void menu()
 
     while (true)
     {
-        cout << "1. Cadastrar Pessoas\n";
-        cout << "2. Cadastrar Ocorrencias\n";
-        cout << "3. Cadastrar Evidencias\n";
-        cout << "4. Buscar Pessoas\n";
-        cout << "5. Buscar Ocorrencias\n";
-        cout << "6 - Ordenar pessoas\n";
-        cout << "7 - Ordenar ocorrencias\n";
-        cout << "8 - Listar evidencias de uma ocorrencia\n";
-        cout << "9 - Analisar ocorrencia\n";
-        cout << "10 - Relatorio de desempenho\n";
-        cout << "0 - Encerrar programa\n";
-        cout << "Escolha uma opcao: ";
+        printMenu();
         if (!(cin >> escolha) || escolha == 0)
         {
             return;
@@ -127,4 +116,23 @@ void menu()
             break;
         }
     }
+}
+void printMenu()
+{
+    printSeparator();
+    for(int i = 0; i<10; i++)
+    {
+        cout << i+1 << "." << textmenu[i]<< '\n';
+    }
+    cout << "0. Encerrar programa\n";
+    printSeparator();
+    cout << "Digite a opção: ";
+}
+void printSeparator()
+{
+    for(int i = 0; i<30; i++)
+    {
+        cout<<'=';
+    }
+    cout<<'\n';
 }
