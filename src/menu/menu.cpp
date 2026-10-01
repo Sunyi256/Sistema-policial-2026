@@ -1,5 +1,4 @@
 #include "funcoes.h"
-string textmenu[10] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Evidencias","Buscar Pessoas", "Buscar Ocorrencias", "Ordenar pessoas","Ordenar ocorrencias","Listar evidencias de uma ocorrencia","Analisar ocorrencia","Relatorio de desempenho"}
 using namespace std;
 void menu()
 {
@@ -7,115 +6,7 @@ void menu()
     int quantidadeOcorrencias = 0;
     int quantidadePessoas = 0;
 
-    while (true)
-    {
-        printMenu();
-        choiceMenu();
-        if (!(cin >> escolha) || escolha == 0)
-        {
-            return;
-        }
 
-        switch (escolha)
-        {
-        case 1:
-        {
-            cout << "1. Cadastrar Pessoas Aleatorias\n";
-            cout << "2. Cadastrar Pessoa Manualmente\n";
-            int escolha1;
-            cin >> escolha1;
-            switch (escolha1)
-            {
-            case 1:
-            {
-                int quantidade;
-                cout << "Escolha a quantidade de pessoas a serem cadastradas: ";
-                cin >> quantidade;
-                if (quantidade < 0 || quantidade > MAX_PESSOAS - quantidadePessoas)
-                {
-                    cout << "Quantidade invalida.\n";
-                    break;
-                }
-                cadastrandoPessoasAleatorias(quantidade, listaPessoas + quantidadePessoas);
-                quantidadePessoas += quantidade;
-                break;
-            }
-            case 2:
-                cadastrandoPessoaManual(listaPessoas, quantidadePessoas);
-                break;
-            default:
-                cout << "Opcao invalida. Tente novamente.\n";
-                break;
-            }
-            break;
-        }
-        case 2:
-        {
-            cout << "1. Cadastrar Ocorrencias Aleatorias\n";
-            cout << "2. Cadastrar Ocorrencia Manualmente\n";
-            int escolha1;
-            cin >> escolha1;
-            switch (escolha1)
-            {
-            case 1:
-            {
-                int quantidade;
-                cout << "Escolha a quantidade de ocorrencias a serem cadastradas: ";
-                cin >> quantidade;
-                if (quantidade < 0 || quantidade > MAX_OCORRENCIAS - quantidadeOcorrencias)
-                {
-                    cout << "Quantidade invalida.\n";
-                    break;
-                }
-                cadastrandoOcorrenciaAleatoria(quantidade, listaOcorrencias + quantidadeOcorrencias);
-                quantidadeOcorrencias += quantidade;
-                break;
-            }
-            case 2:
-                cadastrandoOcorrenciaManual(listaOcorrencias, quantidadeOcorrencias);
-                break;
-            default:
-                cout << "Opcao invalida. Tente novamente.\n";
-                break;
-            }
-            break;
-        }
-        case 3:
-        {
-            cout << "1. Cadastrar Evidencias Aleatorias\n";
-            cout << "2. Cadastrar Evidencia Manualmente\n";
-            int escolha1;
-            cin >> escolha1;
-            switch (escolha1)
-            {
-            case 1:
-            {
-                int quantidade;
-                cout << "Escolha a quantidade de evidencias a serem cadastradas: ";
-                cin >> quantidade;
-                if (quantidade < 0 || quantidade > MAX_EVIDENCIAS - quantidadeEvidencias)
-                {
-                    cout << "Quantidade invalida.\n";
-                    break;
-                }
-                cadastrandoEvidenciaAleatoria(quantidade, listaEvidencias + quantidadeEvidencias);
-                quantidadeEvidencias += quantidade;
-                break;
-            }
-            case 2:
-                cadastrandoEvidenciaManual(listaEvidencias, quantidadeEvidencias);
-                break;
-            default:
-                cout << "Opcao invalida. Tente novamente.\n";
-                break;
-            }
-            break;
-        }
-        default:
-            cout << "Opcao invalida. Tente novamente.\n";
-            break;
-        }
-    }
 }
 void printMenu()
 {
@@ -141,29 +32,18 @@ void printSeparator()
 
 void choiceMenu()
 {
-    int input = choiceInput(0, 10);
+    int input = choiceInput(0, 11);
     printSeparator();
     switch(input)
     {
         case 1:
-            cout<<"1. Cadastro Manual"<<'\n';
-            cout<<"2. Cadastro Automatico (DEV)"<<'\n';
-            input = choiceInput(1,2);
-            if(input==1)
-            {
-
-            }
-            else
-            {
-                
-            }
-
+            registerMenu(0);
         break;
         case 2:
-
+            registerMenu(1);
         break;
         case 3:
-
+            registerMenu(2);
         break;
         case 4:
 
@@ -186,6 +66,9 @@ void choiceMenu()
         case 10:
 
         break;
+        case 11:
+
+        break; 
         case 0:
         
         break;
@@ -211,4 +94,50 @@ int choiceInput(int min, int max)
         }
     } while(!checkifvalid);
     return choice;
+}
+void registerSubMenu(int type)
+{
+    int input;
+    cout<<"1. Cadastro Manual"<<'\n';
+    cout<<"2. Cadastro Automatico (DEV)"<<'\n';
+    cout<<"0. Retornar"<<'\n';
+    input = choiceInput(0,2);
+    switch(input)
+    {
+        case 1:
+            switch(type)
+            {
+                case 0:
+
+                break;
+
+                case 1:
+
+                break;
+                case 2:
+
+                break;
+            }
+        break;
+        case 2:
+            switch(type)
+            {
+                case 0:
+
+                break;
+
+                case 1:
+                
+                break;
+                case 2:
+
+                break;
+            }
+        break;
+        case 0:
+            return;
+        break;
+        default:
+    }
+        
 }

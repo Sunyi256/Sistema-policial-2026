@@ -19,6 +19,11 @@ void printMenu();
 void printSeparator();
 void choiceMenu();
 int choiceInput(int min, int max);
+void registerSubMenu(int type);
+// array menu
+const string textmenu[11] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Evidencias","Buscar Pessoas",
+"Buscar Ocorrencias", "Buscar Evidencias", "Ordenar pessoas","Ordenar ocorrencias","Listar evidencias de uma ocorrencia","Analisar ocorrencia",
+"Relatorio de desempenho"};
 
 //func ord
 
