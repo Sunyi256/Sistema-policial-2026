@@ -1,12 +1,15 @@
 #ifndef MENU_H
 #define MENU_H
-//deixar separado pfvr seguindo como eu deixei
+//keep them separate 
 
-//bibliotecas nossas
+// third party libraries
+
+
+//our own libraries
 #include "variaveis.h"
 #include "busca.h"
 
-//bibliotecas do c
+//c libraries
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -20,20 +23,5 @@ void printSeparator();
 void choiceMenu();
 int choiceInput(int min, int max);
 void registerSubMenu(int type);
-// array menu
-const string textmenu[11] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Evidencias","Buscar Pessoas",
-"Buscar Ocorrencias", "Buscar Evidencias", "Ordenar pessoas","Ordenar ocorrencias","Listar evidencias de uma ocorrencia","Analisar ocorrencia",
-"Relatorio de desempenho"};
-
-//func ord
-
-
-
-//func cad
-
-
-
-//func bus
-
-
+void registerChoiceSubMenu(int input, int type);
 #endif

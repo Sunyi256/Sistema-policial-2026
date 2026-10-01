@@ -1,33 +1,45 @@
 #include "funcoes.h"
-using namespace std;
+#define MENUTEXT 6
+#define REGISTERMENU 3
+#define SEARCHMENU 3
+#define SORTMENU 2
+
+
+// array menu
+const std::string textMainMenu[MENUTEXT] = {"Cadastrar","Buscar","Ordenar","Listar evidencias de uma ocorrencia","Analisar ocorrencia","Relatorio de desempenho"};
+const std::string textRegisterMenu[REGISTERMENU] = {"Cadastrar Pessoas","Cadastrar Ocorrencias","Cadastrar Evidencias"};
+const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas","Buscar Ocorrencias", "Buscar Evidencias"};
+const std::string textSortMenu[SORTMENU] = {"Ordenar pessoas","Ordenar ocorrencias"};
+
 void menu()
 {
-    int quantidadeEvidencias = 0;
-    int quantidadeOcorrencias = 0;
-    int quantidadePessoas = 0;
-
-
+    int totalCase, totalEvidence, totalPerson = 0;
+    bool menuActive = true;
+    while (menuActive)
+    {
+        printSeparator();
+        std::cout<<"\t\t\t\t\t MENU \n";
+        printMenu(MENUTEXT, textMainMenu);
+    }
 }
-void printMenu()
+void printMenu(int size, const string *textarray)
 {
     printSeparator();
-    cout<<"        MENU";
-    printSeparator();
-    for(int i = 0; i<10; i++)
+    for(int i = 0; i<size; i++)
     {
-        cout << i+1 << "." << textmenu[i]<< '\n';
+        std::cout << i+1 << "." << textarray[i]<< '\n';
     }
-    cout << "0. Encerrar programa\n";
+    std::cout << "0. Encerrar programa\n";
     printSeparator();
-    cout << "Digite a opção: ";
+    std::cout << "Digite a opção: ";
 }
 void printSeparator()
 {
     for(int i = 0; i<30; i++)
     {
-        cout<<'=';
+        std::cout<<'=';
     }
-    cout<<'\n';
+    std::cout<<'\n';
 }
 
 void choiceMenu()
@@ -37,13 +49,13 @@ void choiceMenu()
     switch(input)
     {
         case 1:
-            registerMenu(0);
+            subMenu(REGISTERMENU, textRegisterMenu);
         break;
         case 2:
-            registerMenu(1);
+            subMenu(SORTMENU, textSortMenu);
         break;
         case 3:
-            registerMenu(2);
+            subMenu(SEARCHMENU, textSearchMenu);
         break;
         case 4:
 
@@ -54,23 +66,8 @@ void choiceMenu()
         case 6:
 
         break;
-        case 7:
-
-        break;
-        case 8:
-
-        break;
-        case 9:
-
-        break;
-        case 10:
-
-        break;
-        case 11:
-
-        break; 
         case 0:
-        
+            return;
         break;
         default:
         break;
@@ -83,61 +80,27 @@ int choiceInput(int min, int max)
     bool checkifvalid = false;
     do
     {
-        cin>>choice;
+        std::cin>>choice;
         if(choice>=min && choice<=max)
         {
             checkifvalid = true;
         }
         else
         {
-            cout<<"Tente novamente.";
+            std::cout<<"Tente novamente.";
         }
     } while(!checkifvalid);
     return choice;
 }
-void registerSubMenu(int type)
+void subMenu(int size, const string *textarray)
 {
+    bool menuActive = true;
     int input;
-    cout<<"1. Cadastro Manual"<<'\n';
-    cout<<"2. Cadastro Automatico (DEV)"<<'\n';
-    cout<<"0. Retornar"<<'\n';
-    input = choiceInput(0,2);
-    switch(input)
+    while (menuActive)
     {
-        case 1:
-            switch(type)
-            {
-                case 0:
-
-                break;
-
-                case 1:
-
-                break;
-                case 2:
-
-                break;
-            }
-        break;
-        case 2:
-            switch(type)
-            {
-                case 0:
-
-                break;
-
-                case 1:
-                
-                break;
-                case 2:
-
-                break;
-            }
-        break;
-        case 0:
-            return;
-        break;
-        default:
-    }
-        
+        printMenu(size, textarray);
+        input = choiceInput(0, size);
+    }   
 }
+
+

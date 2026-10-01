@@ -1,9 +1,9 @@
 #ifndef VARIAVEIS_H
 #define VARIAVEIS_H
 
-constexpr int MAX_PESSOAS = 10000; // constexpr faz com que o valor seja uma constante em tempo de compilação, permitindo que seja usado para definir o tamanho dos arrays
-constexpr int MAX_OCORRENCIAS = 5000;
-constexpr int MAX_EVIDENCIAS = 20000;
+int max_Person = 10000;
+int max_Case = 5000;
+int max_Evidence = 20000;
 
 struct Pessoa
 {
@@ -30,8 +30,8 @@ struct Evidencia
     int relevancia;
 };
 
-extern Pessoa listaPessoas[MAX_PESSOAS];
-extern Ocorrencia listaOcorrencias[MAX_OCORRENCIAS];
-extern Evidencia listaEvidencias[MAX_EVIDENCIAS];
+extern Pessoa listaPessoas[max_Person];
+extern Ocorrencia listaOcorrencias[max_Case];
+extern Evidencia listaEvidencias[max_Evidence];
 
 #endif
