@@ -1,0 +1,3 @@
+#ifndef STRUCT_EVIDENCE_H
+#define STRUCT_EVIDENCE_H
+#endif

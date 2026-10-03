@@ -5,14 +5,6 @@ int max_Person = 10000;
 int max_Case = 5000;
 int max_Evidence = 20000;
 
-struct Pessoa
-{
-    int id;
-    char nome[100];
-    int idade;
-    char cidade[50];
-};
-
 struct Ocorrencia
 {
     int id;
