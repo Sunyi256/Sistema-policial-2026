@@ -94,13 +94,9 @@ int choiceInput(int min, int max)
 }
 void subMenu(int size, const string *textarray)
 {
-    bool menuActive = true;
     int input;
-    while (menuActive)
-    {
-        printMenu(size, textarray);
-        input = choiceInput(0, size);
-    }   
+    printMenu(size, textarray);
+    input = choiceInput(0, size);
 }
 
 
