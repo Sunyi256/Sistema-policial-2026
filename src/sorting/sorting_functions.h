@@ -1,5 +1,5 @@
 #ifndef SORTING_FUNCTIONS_H
 #define SORTING_FUNCTIONS_H
-#include "merge_sort.h"
-#include "bubble_sort.h"
+#include "sort_merge.h"
+#include "sort_insert.h"
 #endif
