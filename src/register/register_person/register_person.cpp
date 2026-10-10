@@ -1,5 +1,5 @@
 #include "register_person.h"
-
+#include <limits>
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[])
 {
     std::string nomes[6] = {"Ana", "Bruno", "Carlos", "Diana", "Eduardo", "Fernanda"};

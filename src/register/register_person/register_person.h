@@ -15,6 +15,6 @@
 #include <string>
 
 // func REGISTER PERSON
-void cadastrandoPessoaAleatoria(int quantidadePessoas, struct Pessoa listaPessoas[]);
-bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoas);
+void cadastrandoPessoaAleatoria(int quantidadePessoas, struct Pessoa listaPessoas[]); // O(n)
+bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoas);   // O(n)
 #endif

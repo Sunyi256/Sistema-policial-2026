@@ -2,7 +2,7 @@
 #define BUSCA_H
 
 template <typename T>
-int Buscal(T vet[], T target, int tamanho)
+int Buscal(T vet[], T target, int tamanho) // O(n)
 {
     for (int i = 0; i < tamanho; i++)
         if (vet[i] == target)
@@ -11,7 +11,7 @@ int Buscal(T vet[], T target, int tamanho)
 }
 
 template <typename T>
-int Buscabi(T vet[], T target, int tamanho)
+int Buscabi(T vet[], T target, int tamanho) // O(log n)
 {
     int ini = 0;
     int fim = tamanho - 1;

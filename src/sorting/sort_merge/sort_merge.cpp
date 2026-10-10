@@ -32,8 +32,18 @@ void merge(T v[], int inicio, int meio, int fim)
         k++;
     }
 
-    while (i < n1) { v[k] = esquerda[i]; i++; k++; }
-    while (j < n2) { v[k] = direita[j]; j++; k++; }
+    while (i < n1)
+    {
+        v[k] = esquerda[i];
+        i++;
+        k++;
+    }
+    while (j < n2)
+    {
+        v[k] = direita[j];
+        j++;
+        k++;
+    }
 }
 
 void merge_sort(T v[], int inicio, int fim)

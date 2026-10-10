@@ -14,6 +14,6 @@
 #include <limits>
 
 // func REGISTER EVIDENCE
-void cadastrandoProvaAleatoria(int quantidadeProvas, struct Prova listaProvas[]);
-bool cadastrandoProvaManual(struct Prova listaProvas[], int &quantidadeProvas);
+void cadastrandoProvaAleatoria(int quantidadeProvas, struct Prova listaProvas[]); // O(n)
+bool cadastrandoProvaManual(struct Prova listaProvas[], int &quantidadeProvas);   // O(n)
 #endif
