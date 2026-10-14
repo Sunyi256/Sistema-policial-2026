@@ -1,17 +1,9 @@
 #ifndef BUSCA_H
 #define BUSCA_H
 
-template <typename T>
-int Buscal(T vet[], T target, int tamanho) // O(n)
-{
-    for (int i = 0; i < tamanho; i++)
-        if (vet[i] == target)
-            return i;
-    return -1;
-}
 
 template <typename T>
-int Buscabi(T vet[], T target, int tamanho) // O(log n)
+int Buscabi(T vet[], T target, int tamanho) // Busca binária
 {
     int ini = 0;
     int fim = tamanho - 1;
@@ -25,6 +17,13 @@ int Buscabi(T vet[], T target, int tamanho) // O(log n)
         if (vet[meio] > target)
             fim = meio - 1;
     }
+    return -1;
+}
+int Linearsearch (Pessoa list[], int id, int size)
+{
+    for (int i = 0; i < size; i++)
+    if (list[i].id == id)
+            return i;
     return -1;
 }
 
