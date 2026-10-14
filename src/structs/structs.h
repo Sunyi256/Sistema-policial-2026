@@ -4,4 +4,5 @@
     #include "struct_evidence.h"
     #include "struct_person.h"
     #include "struct_relation.h"
+    #include "struct_relevance.h"
 #endif
