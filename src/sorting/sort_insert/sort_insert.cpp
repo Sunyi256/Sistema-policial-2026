@@ -1,6 +1,6 @@
 #include "sort_insert.h"
 
-
+template <typename T>
 void insert(T vetor[], int tamanho)
 {
     for (int i = 1; i < tamanho; i++)

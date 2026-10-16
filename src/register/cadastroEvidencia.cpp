@@ -1,4 +1,5 @@
 #include "funcoes.h"
+#include "variaveis.h"
 #include <limits>
 
 void cadastrandoEvidenciaAleatoria(int quantidadeEvidencias, struct Evidencia listaEvidencias[])
@@ -41,12 +42,24 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     {
         descricao.resize(sizeof(listaEvidencias[indice].descricao) - 1); // se for maior, redimensionamos a string para o tamanho máximo permitido por meio de o método resize(), garantindo que não ocorra estouro de buffer ao copiar a string para o array de char.
     }
-    cout << "Digite o id da ocorrencia relacionada a esta evidencia: ";
-    int idOcorrencia;
-    cin >> idOcorrencia;
+    cout << "Qual n[ivel de relavancia ?" << endl;
+    cin >> listaEvidencias[indice].relevancia;
+    cout << "Quer correlacionar com alguma ocorrencia ?" << endl;
+    cout << " 1 - nao; 2 - sim" << endl;
+    int choose;
+    cin >> choose;
+    if( choose == 2)
+    {
+        interconnection [Usedinterconnection].registered_id = indice;
+        listaEvidencias[indice].id = indice;
+        cout << "Qual id da ocorrencia ?" << endl;
+        cin >> interconnection [Usedinterconnection].occurence_id;
+        interconnection [Usedinterconnection].Relevancelevel = listaEvidencias->relevancia;
+        Usedinterconnection++;
+        
+    }
 
     listaEvidencias[indice].id = indice;
-    listaEvidencias[indice].idOcorrencia = idOcorrencia;
     stringParaChar(listaEvidencias[indice].descricao, descricao.c_str()); // usamos .c_str() para converter a string em um ponteiro para o primeiro caractere da descrição.
     if (quantidadeEvidencias < MAX_EVIDENCIAS)
     {

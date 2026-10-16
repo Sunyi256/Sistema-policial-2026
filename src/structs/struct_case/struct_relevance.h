@@ -1,3 +1,0 @@
-#ifndef STRUCT_RELEVANCE_H
-#define STRUCT_RELEVANCE_H
-#endif
