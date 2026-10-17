@@ -1,32 +1,11 @@
 #ifndef VARIAVEIS_H
 #define VARIAVEIS_H
-#include "struct_relevance.h"
+#include "structs.h"
 
-int max_Person = 10000;
-int max_Case = 5000;
-int max_Evidence = 20000;
-
-struct Ocorrencia
-{
-    int id;
-    char tipo[50];
-    char local[100];
-    int gravidade;
-    int ano;
-};
-
-struct Evidencia
-{
-    int id;
-    int idOcorrencia;
-    char descricao[100];
-    int relevancia;
-};
-
-extern Pessoa listaPessoas[max_Person];
-extern Ocorrencia listaOcorrencias[max_Case];
-extern Evidencia listaEvidencias[max_Evidence];
-extern relevance interconnection [max_Evidence];
-extern int Usedinterconnection = 0;
+extern Pessoa listaPessoas[10000];
+extern Ocorrencia listaOcorrencias[5000];
+extern Evidencia listaEvidencias[20000];
+extern relevance interconnection [20000];
+extern int Usedinterconnection;
 
 #endif

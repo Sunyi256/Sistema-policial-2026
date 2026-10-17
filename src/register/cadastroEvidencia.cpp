@@ -42,10 +42,15 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     {
         descricao.resize(sizeof(listaEvidencias[indice].descricao) - 1); // se for maior, redimensionamos a string para o tamanho máximo permitido por meio de o método resize(), garantindo que não ocorra estouro de buffer ao copiar a string para o array de char.
     }
-    cout << "Qual n[ivel de relavancia ?" << endl;
+    cout << "Qual nivel de relavancia ?" << endl;
+    cout << " 1 - Baixa " << endl;
+    cout << " 2 - Media " << endl;
+    cout << " 3 - Alta " << endl;
+    cout << " 4 - Extrema " << endl;
     cin >> listaEvidencias[indice].relevancia;
     cout << "Quer correlacionar com alguma ocorrencia ?" << endl;
-    cout << " 1 - nao; 2 - sim" << endl;
+    cout << " 1 - Sim " << endl;
+    cout << " 2 - Nao " << endl;
     int choose;
     cin >> choose;
     if( choose == 2)

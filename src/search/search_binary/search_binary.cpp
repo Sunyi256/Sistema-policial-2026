@@ -1,4 +1,5 @@
 #include "search_binary.h"
+#include "struct_case.h"
 
 
 int Searchbinary(Ocorrencia list[], int target, int tamanho)

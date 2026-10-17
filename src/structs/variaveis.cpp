@@ -1,9 +1,8 @@
 #include "variaveis.h"
-#include "register_case.h"
-#include "register_evidence.h"
-#include "register_person.h"
-#include "struct_relevance.h"
+#include "structs.h"
 
-Pessoa listaPessoas[MAX_PESSOAS];
-Ocorrencia listaOcorrencias[MAX_OCORRENCIAS];
-Evidencia listaEvidencias[MAX_EVIDENCIAS];
+
+Pessoa listaPessoas[10000];
+Ocorrencia listaOcorrencias[5000];
+Evidencia listaEvidencias[20000];
+int Usedinterconnection = 0;
