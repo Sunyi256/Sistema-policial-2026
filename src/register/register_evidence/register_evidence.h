@@ -6,12 +6,12 @@
 #define MAX_EVIDENCIAS 100
 
 // our own libraries
-#include "variaveis.h"
-#include "stringParaChar.h"
+#include "structs.h"
 
 // c libraries
 #include <iostream>
 #include <limits>
+#include <string>
 
 // func REGISTER EVIDENCE
 void cadastrandoProvaAleatoria(int quantidadeProvas, struct Prova listaProvas[]); // O(n)

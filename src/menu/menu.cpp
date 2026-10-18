@@ -50,10 +50,12 @@ void choiceMenu()
     switch (input)
     {
     case 1:
-        subMenu(REGISTERMENU, textRegisterMenu);
+        cadastrandoPessoaManual(listaPessoas, Amount_P);
         break;
     case 2:
         subMenu(SORTMENU, textSortMenu);
+        std:: cout << "Digite o id da pessoa que procura " << std:: endl;
+        printP(listaPessoas, choiceInput(0, 100000), Amount_P);
         break;
     case 3:
         subMenu(SEARCHMENU, textSearchMenu);
