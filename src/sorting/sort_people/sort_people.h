@@ -1,7 +1,7 @@
 #ifndef SORT_PEOPLE_H
 #define SORT_PEOPLE_H
 
-#include "struct_person.h"
+#include "src\structs\structs.h"
 
 int compareStrings(const char *a, const char *b);
 static bool compareById(const Pessoa &a, const Pessoa &b);

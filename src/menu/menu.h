@@ -5,8 +5,9 @@
 // third party libraries
 
 // our own libraries
-#include "variaveis.h"
-#include "busca.h"
+#include "src/structs/structs.h"
+#include "src/menu/Menu_Search/Search_People.h"
+#include "src/menu/Menu_Search/search_o/Search_Occurrence.h"
 
 // c libraries
 #include <iostream>
@@ -14,6 +15,7 @@
 #include <thread>
 #include <ctime>
 #include <limits>
+#include <string>
 
 // func menu
 void menu();                                     // O(n)

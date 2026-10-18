@@ -1,7 +1,7 @@
 #ifndef SORT_CASE_H
 #define SORT_CASE_H
 
-#include "struct_case.h"
+#include "src\structs\structs.h"
 
 static bool compareId(const Ocorrencia &a, const Ocorrencia &b);
 

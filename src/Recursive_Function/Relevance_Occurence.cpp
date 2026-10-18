@@ -1,7 +1,6 @@
-#include "Relevance _Occurrence.h"
-#include "struct_relevance.h"
+#include "Relevance_Occurrence.h"
 
-int recursivEvidence(relevance list [],int n, int idoccurrence)
+int recursivEvidence(relation list [],int n, int idoccurrence)
 {
     int accumulator = 0;
     if(n == 0)

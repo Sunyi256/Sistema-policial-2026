@@ -1,4 +1,4 @@
-#include "funcoes.h"
+#include "src\menu\menu.h"
 #define MENUTEXT 6
 #define REGISTERMENU 3
 #define SEARCHMENU 3
@@ -9,6 +9,8 @@ const std::string textMainMenu[MENUTEXT] = {"Cadastrar", "Buscar", "Ordenar", "L
 const std::string textRegisterMenu[REGISTERMENU] = {"Cadastrar Pessoas", "Cadastrar Ocorrencias", "Cadastrar Evidencias"};
 const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas", "Buscar Ocorrencias", "Buscar Evidencias"};
 const std::string textSortMenu[SORTMENU] = {"Ordenar pessoas", "Ordenar ocorrencias"};
+// global variable arrays, if you are gonna use them remember to add extern on the other files
+
 
 void menu()
 {
@@ -60,7 +62,7 @@ void choiceMenu()
 
         break;
     case 5:
-
+        printO(extern listaOcorrencias[])
         break;
     case 6:
 
