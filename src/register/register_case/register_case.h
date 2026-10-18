@@ -6,8 +6,7 @@
 #define MAX_OCORRENCIAS 100
 
 // our own libraries
-#include "variaveis.h"
-#include "stringParaChar.h"
+#include "structs.h"
 #include "busca.h"
 
 // c libraries

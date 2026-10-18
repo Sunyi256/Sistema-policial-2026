@@ -15,4 +15,6 @@ int Searchbinary(Ocorrencia list[], int target, int tamanho)
         if (list[meio].id > target)
             fim = meio - 1;
     }
+    return -1; 
 }
+

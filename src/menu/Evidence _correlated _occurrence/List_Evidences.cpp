@@ -1,8 +1,7 @@
 #include "List_Evidences.h"
-#include "struct_relevance.h"
-#include "struct_evidence.h"
+#include "structs.h"
 #include "Relevance _Occurrence.h"
-#include "variaveis.h"
+
 
 
 int Linearsearch (Evidencia list[], int id, int size)
