@@ -5,7 +5,7 @@ void cadastrandoEvidenciaAleatoria(int quantidade, struct Evidencia listaEvidenc
 {
     if (quantidadeOcorrencias == 0)
     {
-        std::cout << "Nao ha ocorrencias cadastradas para relacionar as evidencias.\n";
+        std::cout << "Nao ha ocorrencias cadastradas para relacionar as evidencias." << std:: endl;
         return;
     }
     std::string descricoes[9] = {"arma do crime", "carta de ameaça", "câmera de segurança", "impressão digital", "testemunha ocular", "vídeo de celular", "arma de fogo", "arma branca", "objeto suspeito"};
@@ -41,7 +41,7 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     {
         std::cin.clear(); 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Id invalido. Digite novamente: " << std:: endl;;
+        std::cout << "Id invalido. Digite novamente: " << std:: endl;
     }
     bool found = false;
     for (int i = 0; i < quantidadeOcorrencias; i++)
@@ -68,7 +68,7 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
         std::cout << "A descricao nao pode ficar vazia. Digite novamente: " << std:: endl;
         std::getline(std::cin, descricao);
     }
-    std::cout << "Qual nivel de relevancia ?" << std:: endl;;
+    std::cout << "Qual nivel de relevancia ?" << std:: endl;
     std::cout << " 1 - Baixa" << std:: endl;
     std::cout << " 2 - Media" << std:: endl;
     std::cout << " 3 - Alta" <<  std:: endl;
@@ -78,7 +78,7 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Relevancia invalida (1 a 4). Digite novamente: ";
+        std::cout << "Relevancia invalida (1 a 4). Digite novamente: " << std:: endl;
     }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     listaEvidencias[indice].id = indice;
@@ -89,6 +89,6 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     interconnection[Usedinterconnection].Relevancelevel = relevancia;
     Usedinterconnection++;
     quantidadeEvidencias++;
-    std::cout << "Evidencia cadastrada com sucesso.\n";
+    std::cout << "Evidencia cadastrada com sucesso" << std:: endl;
     return true;
 }
