@@ -1,6 +1,4 @@
 #include "List_Evidences.h"
-#include "structs.h"
-#include "Relevance _Occurrence.h"
 
 
 
@@ -17,7 +15,7 @@ int Linearsearch (Evidencia list[], int id, int size)
 
 
 
-void printCorrelation(relevance list[],Evidencia Evidencelist[],int id,int size )
+void printCorrelation(relation list[],Evidencia Evidencelist[],int id,int size )
 {
     for (int i = 0; i < size; i++)
     {

@@ -3,7 +3,7 @@
 
 void printP(Pessoa list[], int id, int size)
 {
-    int index = Linearsearch(list, id, size);
+    int index = linear::LinearsearchPerson(list, id, size);
     if (index == -1)
     {
     std::cout <<  "Esta pessoa nao esta cadastrada." << '\n';

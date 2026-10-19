@@ -11,7 +11,7 @@
 // array menu
 const std::string textMainMenu[MENUTEXT] = {"Cadastrar", "Ordenar", "Buscar", "Listar evidencias de uma ocorrencia", "Analisar ocorrencia", "Relatorio de desempenho"};
 const std::string textRegisterMenu[REGISTERMENU] = {"Cadastrar Pessoas", "Cadastrar Ocorrencias", "Cadastrar Evidencias"};
-const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas", "Buscar Ocorrencias", "Buscar Evidencias"};
+const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas", "Buscar Ocorrencias"};
 const std::string textSortMenu[SORTMENU] = {"Ordenar pessoas", "Ordenar ocorrencias"};
 // global variable arrays, if you are gonna use them remember to add extern on the other files
 int Amount_P = 0, Amount_O = 0, Amount_E = 0,Amount_R = 0, Usedinterconnection = 0;
@@ -72,18 +72,15 @@ void choiceMenu()
         break;
     case 2:
         subMenu(SORTMENU, textSortMenu, 1);
-        std:: cout << "Digite o id da pessoa que procura " << std:: endl;
-        printP(listaPessoas, choiceInput(0, Amount_P), Amount_P);
         break;
     case 3:
         subMenu(SEARCHMENU, textSearchMenu, 2);
         break;
     case 4:
-
+        listEvidenceMenu();
         break;
     case 5:
-        int target_ID;
-        printO (listaOcorrencias,target_ID,Amount_O);
+        analyzeCaseMenu();
         break;
     case 6:
 
@@ -145,43 +142,94 @@ void subMenu(int size, const std::string *textarray, int type)
     case 1:
         std::cout<<"O que você quer ordenar? \n";
         printMenu(size, textarray);
+        subtype = choiceInput(0,2);
         switch (subtype)
         {
         case  0:
             return;
             break;
         case  1:
-                std::cout<<"Como você quer ordenar? \n";
-                
+                std::cout<<"Como você deseja ordenar? \n";
+                std::cout<<"0 - ID \n";
+                std::cout<<"1 - Nome \n";
+                input = choiceInput(0,1);
+                if (!input)
+                {
+                    sortpeople::sortById(listaPessoas, Amount_P);
+                }
+                else
+                {
+                    sortpeople::sortByName(listaPessoas, Amount_P);
+                }
             break;
         case  2:
-            /* code */
+                std::cout<<"Como você deseja ordenar? \n";
+                std::cout<<"0 - ID \n";
+                std::cout<<"1 - Gravidade \n";
+                input = choiceInput(0,1);
+                if (!input)
+                {
+                    sortocc::sortById(listaOcorrencias, Amount_O);
+                }
+                else
+                {
+                    sortocc::sortBySeverity(listaOcorrencias, Amount_O);
+                }
             break;
-        
         default:
             break;
         }
         break;
     case 2:
+        std::cout<<"O que você quer pequisar? \n";
+        printMenu(SEARCHMENU, textSearchMenu);
+        subtype = choiceInput(0,2);
         switch (subtype)
         {
         case  0:
-            /* code */
+            return;
             break;
         case  1:
-            /* code */
+                printP(listaPessoas, input, Amount_P);
             break;
         case  2:
-            /* code */
-            break;
-        case  3:
-            /* code */
-            break;
+                printO(listaOcorrencias, input, Amount_O);
+        break;
         default:
             break;
         }
         break;
     default:
         break;
+    }
+}
+
+void listEvidenceMenu()
+{
+    std::cout<<"Digite o ID da ocorrencia, ou digite -1 para sair \n";
+    int input;
+    input = choiceInput(-1, Amount_O);
+    if (input == -1)
+    {
+        return;
+    }
+    else
+    {
+      printCorrelation(interconnection, listaEvidencias, input, Amount_R);
+    }
+}
+
+void analyzeCaseMenu()
+{
+    std::cout<<"Digite o ID da ocorrencia, ou digite -1 para sair \n";
+    int input;
+    input = choiceInput(-1, Amount_O);
+    if (input == -1)
+    {
+        return;
+    }
+    else
+    {
+      analyzeCase(listaOcorrencias,Amount_O, input, interconnection, Amount_R);
     }
 }

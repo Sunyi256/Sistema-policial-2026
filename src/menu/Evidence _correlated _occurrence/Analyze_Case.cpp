@@ -21,7 +21,7 @@ void analyzeCase(Ocorrencia listaOcorrencias[], int quantidadeOcorrencias, int i
         std::cout << "Nao ha ocorrencias cadastradas." << std::endl;
         return;
     }
-    int index = LinearsearchCases(listaOcorrencias, idOcorrencia, quantidadeOcorrencias);
+    int index = linear::LinearsearchCases(listaOcorrencias, idOcorrencia, quantidadeOcorrencias);
     if (index == -1)
     {
         std::cout << "Esta ocorrencia nao existe." << std::endl;

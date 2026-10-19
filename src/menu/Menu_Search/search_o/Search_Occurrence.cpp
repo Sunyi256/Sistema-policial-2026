@@ -7,7 +7,7 @@ void printO(Ocorrencia list[], int target, int size)
     std::cout << "Nao ha ocorrencias cadastradas." << std::endl;
     return;
    }
-   int index = Searchbinary(list, target, size); 
+   int index = binarysearch::Searchbinary(list, target, size); 
    if (index == -1)
    {
     std::cout << " Esta ocorrencia nao existe." << std::endl;

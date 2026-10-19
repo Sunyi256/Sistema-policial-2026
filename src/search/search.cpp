@@ -1,5 +1,22 @@
-#include "search_binary.h"
+#include "search.h"
 
+
+int LinearsearchPersons (Pessoa list[], int id, int size)
+{
+    for (int i = 0; i < size; i++)
+    if (list[i].id == id)
+            return i;
+    return -1;
+}
+
+
+int LinearsearchRelation (relation list[], int id, int size)
+{
+    for (int i = 0; i < size; i++)
+    if (list[i].occurrence_id == id)
+            return i;
+    return -1;
+}
 
 int Searchbinary(Ocorrencia list[], int target, int tamanho)
 {
