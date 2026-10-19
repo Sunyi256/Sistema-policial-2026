@@ -2,10 +2,6 @@
 #define STRUCTS_H
 #include <string>
 
-#define MAX_P 10000
-#define MAX_O 5000
-#define MAX_E 20000
-#define MAX_R 20000
 
 struct Ocorrencia
 {
@@ -43,6 +39,5 @@ extern Ocorrencia *listaOcorrencias;
 extern Evidencia *listaEvidencias;
 extern relation *interconnection;
 
-void DeleteArrays();
 
 #endif
