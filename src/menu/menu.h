@@ -22,11 +22,11 @@
 
 // func menu
 void menu();                                     // O(n)
-void printMenu();                                // O(n)
+void printMenu(int size, const std::string *textarray);                                // O(n)
 void printSeparator();                           // O(n)
 void choiceMenu();                               // O(n)
 int choiceInput(int min, int max);               // O(n)
-void SubMenu(int size, const std::string *textarray, int type);                  // O(n)
+void subMenu(int size, const std::string *textarray, int type);                  // O(n)
 void registerChoiceSubMenu(int input, int type); // O(n)
 void DeleteArrays();                             // O(n)
 

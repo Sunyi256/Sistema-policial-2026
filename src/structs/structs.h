@@ -2,6 +2,10 @@
 #define STRUCTS_H
 #include <string>
 
+#define MAX_P 1000000
+#define MAX_O 500000
+#define MAX_E 2000000
+#define MAX_R 4000000
 
 struct Ocorrencia
 {

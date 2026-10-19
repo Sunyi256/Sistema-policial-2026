@@ -6,8 +6,8 @@
 #define MAX_OCORRENCIAS 100
 
 // our own libraries
-#include "structs.h"
-#include "busca.h"
+#include "src/structs/structs.h"
+#include "src/search/search_linear/search_linear.h"
 
 // c libraries
 #include <iostream>

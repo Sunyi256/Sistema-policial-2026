@@ -3,10 +3,6 @@
 #define REGISTERMENU 3
 #define SEARCHMENU 3
 #define SORTMENU 2
-#define MAX_P 1000000
-#define MAX_O 500000
-#define MAX_E 2000000
-#define MAX_R 4000000
 
 // array menu
 const std::string textMainMenu[MENUTEXT] = {"Cadastrar", "Ordenar", "Buscar", "Listar evidencias de uma ocorrencia", "Analisar ocorrencia", "Relatorio de desempenho"};
@@ -136,7 +132,7 @@ void subMenu(int size, const std::string *textarray, int type)
                 cadastrandoOcorrenciaManual(listaOcorrencias, Amount_O);
             break;
         case  3:
-                cadastrandoProvaManual(listaEvidencias, Amount_E);
+                cadastrandoEvidenciaManual(listaEvidencias, Amount_E);
             break;
         default:
             break;

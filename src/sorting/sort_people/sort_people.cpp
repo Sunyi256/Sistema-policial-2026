@@ -1,8 +1,8 @@
 #include <cstring>
 
 #include "sort_people.h"
-#include "sort_insert.h"
-#include "sort_merge.h"
+#include "src/sorting/sort_insert/sort_insert.h"
+#include "src/sorting/sort_merge/sort_merge.h"
 
 int compareStrings(const char *a, const char *b)
 {
@@ -26,12 +26,12 @@ int compareStrings(const char *a, const char *b)
 
 int compareByCity(const Pessoa &a, const Pessoa &b)
 {
-    return compareStrings(a.cidade, b.cidade) < 0;
+    return compareStrings(a.cidade.c_str(), b.cidade.c_str()) < 0;
 }
 
 static bool compareByName(const Pessoa &a, const Pessoa &b)
 {
-    return compareStrings(a.nome, b.nome) < 0;
+    return compareStrings(a.nome.c_str(), b.nome.c_str()) < 0;
 }
 
 static bool compareById(const Pessoa &a, const Pessoa &b)

@@ -6,7 +6,7 @@
 #define MAX_EVIDENCIAS 100
 
 // our own libraries
-#include "structs.h"
+#include "src/structs/structs.h"
 
 // c libraries
 #include <iostream>
@@ -14,6 +14,6 @@
 #include <string>
 
 // func REGISTER EVIDENCE
-void cadastrandoProvaAleatoria(int quantidadeProvas, struct Evidencia listaProvas[]); // O(n)
-bool cadastrandoProvaManual(struct Evidencia listaProvas[], int &quantidadeProvas);   // O(n)
+void cadastrandoEvidenciaAleatoria(int quantidadeProvas, struct Evidencia listaProvas[]); // O(n)
+bool cadastrandoEvidenciaManual(struct Evidencia listaProvas[], int &quantidadeProvas);   // O(n)
 #endif
