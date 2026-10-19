@@ -1,6 +1,6 @@
-#include "struct_case.h"
-#include "sort_insert.h"
-#include "sort_merge.h"
+#include "sort_case.h"
+#include "src/sorting/sort_insert/sort_insert.h"
+#include "src/sorting/sort_merge/sort_merge.h"
 
 static bool compareId(const Ocorrencia &a, const Ocorrencia &b)
 {
