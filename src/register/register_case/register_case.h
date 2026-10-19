@@ -7,7 +7,6 @@
 
 // our own libraries
 #include "src/structs/structs.h"
-#include "src/search/search_linear/search_linear.h"
 
 // c libraries
 #include <iostream>
