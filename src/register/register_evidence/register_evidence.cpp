@@ -1,4 +1,5 @@
 #include "register_evidence.h"
+#include "../register_input/register_input.h"
 #include <cstdlib>
 
 void cadastrandoEvidenciaAleatoria(int quantidade, struct Evidencia listaEvidencias[], int &quantidadeEvidencias, struct Ocorrencia listaOcorrencias[], int quantidadeOcorrencias)
@@ -62,11 +63,9 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     std::cout << "Digite a descricao da evidencia: " << std:: endl;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     std::string descricao;
-    std::getline(std::cin, descricao); 
-    while (descricao.find_first_not_of(' ') == std::string::npos)
+    if (!readText("A descricao", descricao))
     {
-        std::cout << "A descricao nao pode ficar vazia. Digite novamente: " << std:: endl;
-        std::getline(std::cin, descricao);
+        return false;
     }
     std::cout << "Qual nivel de relevancia ?" << std:: endl;
     std::cout << " 1 - Baixa" << std:: endl;
@@ -89,6 +88,6 @@ bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantid
     interconnection[Usedinterconnection].Relevancelevel = relevancia;
     Usedinterconnection++;
     quantidadeEvidencias++;
-    std::cout << "Evidencia cadastrada com sucesso" << std:: endl;
+    std::cout << "Evidencia cadastrada com sucesso. ID: " << listaEvidencias[indice].id << std:: endl;
     return true;
 }

@@ -1,4 +1,5 @@
 #include "register_case.h"
+#include "../register_input/register_input.h"
 #include <cstdlib>
 
 void cadastrandoOcorrenciaAleatoria(int quantidadeOcorrencias, struct Ocorrencia listaOcorrencias[])
@@ -26,19 +27,15 @@ bool cadastrandoOcorrenciaManual(struct Ocorrencia listaOcorrencias[], int &quan
     int indice = quantidadeOcorrencias;
     std::cout << "Digite o tipo da ocorrencia: ";
     std::string tipo;
-    std::getline(std::cin, tipo);
-    while (tipo.find_first_not_of(' ') == std::string::npos)
+    if (!readText("O tipo", tipo))
     {
-        std::cout << "O tipo nao pode ficar vazio. Digite novamente: " << std::endl;
-        std::getline(std::cin, tipo);
+        return false;
     }
     std::cout << "Digite o local da ocorrencia: " << std::endl;
     std::string local;
-    std::getline(std::cin, local);
-    while (local.find_first_not_of(' ') == std::string::npos)
+    if (!readText("O local", local))
     {
-        std::cout << "O local nao pode ficar vazio. Digite novamente: " << std::endl;
-        std::getline(std::cin, local);
+        return false;
     }
 
     std::cout << "Digite a gravidade da ocorrencia (1 a 5): " << std::endl;
@@ -71,6 +68,6 @@ bool cadastrandoOcorrenciaManual(struct Ocorrencia listaOcorrencias[], int &quan
     listaOcorrencias[indice].tipo = tipo;
     listaOcorrencias[indice].local = local;
     quantidadeOcorrencias++;
-    std::cout << "Ocorrencia cadastrada com sucesso." << std::endl;
+    std::cout << "Ocorrencia cadastrada com sucesso. ID: " << listaOcorrencias[indice].id << std::endl;
     return true;
 }

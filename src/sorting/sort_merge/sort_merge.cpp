@@ -1,4 +1,5 @@
 #include "sort_merge.h"
+#include "../../structs/structs.h"
 
 template <typename T>
 void merge(T v[], int inicio, int meio, int fim)
@@ -65,8 +66,8 @@ void merge(T v[], int inicio, int meio, int fim, Compare compare)
     int n1 = meio - inicio + 1;
     int n2 = fim - meio;
 
-    T esquerda[n1];
-    T direita[n2];
+    T *esquerda = new T[n1];
+    T *direita = new T[n2];
 
     for (int i = 0; i < n1; i++)
         esquerda[i] = v[inicio + i];
@@ -104,6 +105,8 @@ void merge(T v[], int inicio, int meio, int fim, Compare compare)
         j++;
         k++;
     }
+    delete[] esquerda;
+    delete[] direita;
 }
 
 template <typename T, typename Compare>
@@ -117,3 +120,7 @@ void merge_Compare(T v[], int inicio, int fim, Compare compare)
         merge(v, inicio, meio, fim, compare);
     }
 }
+
+// instanciacoes explicitas: os templates estao neste .cpp, entao o compilador precisa gerar aqui as versoes usadas nos outros arquivos
+template void merge_Compare<Pessoa, bool (*)(const Pessoa &, const Pessoa &)>(Pessoa v[], int inicio, int fim, bool (*compare)(const Pessoa &, const Pessoa &));
+template void merge_Compare<Ocorrencia, bool (*)(const Ocorrencia &, const Ocorrencia &)>(Ocorrencia v[], int inicio, int fim, bool (*compare)(const Ocorrencia &, const Ocorrencia &));

@@ -1,20 +1,20 @@
 #include "menu.h"
-#define MENUTEXT 6
+#define MENUTEXT 5
 #define REGISTERMENU 3
 #define SEARCHMENU 3
 #define SORTMENU 2
 
 // array menu
-const std::string textMainMenu[MENUTEXT] = {"Cadastrar", "Ordenar", "Buscar", "Listar evidencias de uma ocorrencia", "Analisar ocorrencia", "Relatorio de desempenho"};
+const std::string textMainMenu[MENUTEXT] = {"Cadastrar", "Ordenar", "Buscar", "Listar evidencias de uma ocorrencia", "Analisar ocorrencia"};
 const std::string textRegisterMenu[REGISTERMENU] = {"Cadastrar Pessoas", "Cadastrar Ocorrencias", "Cadastrar Evidencias"};
 const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas", "Buscar Ocorrencias"};
 const std::string textSortMenu[SORTMENU] = {"Ordenar pessoas", "Ordenar ocorrencias"};
 // global variable arrays, if you are gonna use them remember to add extern on the other files
 int Amount_P = 0, Amount_O = 0, Amount_E = 0, Amount_R = 0, Usedinterconnection = 0;
-Pessoa *listaPessoas = new Pessoa[Amount_P];
-Ocorrencia *listaOcorrencias = new Ocorrencia[Amount_O];
-Evidencia *listaEvidencias = new Evidencia[Amount_E];
-relation *interconnection = new relation[Amount_R];
+Pessoa *listaPessoas = new Pessoa[MAX_P];
+Ocorrencia *listaOcorrencias = new Ocorrencia[MAX_O];
+Evidencia *listaEvidencias = new Evidencia[MAX_E];
+relation *interconnection = new relation[MAX_R];
 
 // functions
 
@@ -35,6 +35,7 @@ void menu()
         printSeparator();
         std::cout << "\t\t\t\t\t MENU \n";
         printMenu(MENUTEXT, textMainMenu);
+        menuActive = choiceMenu();
     }
 }
 void printMenu(int size, const std::string *textarray)
@@ -57,7 +58,7 @@ void printSeparator()
     std::cout << '\n';
 }
 
-void choiceMenu()
+bool choiceMenu()
 {
     int input = choiceInput(0, MENUTEXT);
     printSeparator();
@@ -78,15 +79,13 @@ void choiceMenu()
     case 5:
         analyzeCaseMenu();
         break;
-    case 6:
-
-        break;
     case 0:
-        return;
+        return false;
         break;
     default:
         break;
     }
+    return true;
 }
 
 int choiceInput(int min, int max)
@@ -95,7 +94,18 @@ int choiceInput(int min, int max)
     bool checkifvalid = false;
     do
     {
-        std::cin >> choice;
+        if (!(std::cin >> choice))
+        {
+            if (std::cin.eof())
+            {
+                return 0;
+            }
+            std::cin.clear();
+            choice = min - 1;
+        }
+        while (std::cin.get() != '\n' && std::cin)
+        {
+        }
         if (choice >= min && choice <= max)
         {
             checkifvalid = true;
@@ -129,7 +139,7 @@ void subMenu(int size, const std::string *textarray, int type)
             cadastrandoOcorrenciaManual(listaOcorrencias, Amount_O);
             break;
         case 3:
-            cadastrandoEvidenciaManual(listaEvidencias, Amount_E);
+            cadastrandoEvidenciaManual(listaEvidencias, Amount_E, listaOcorrencias, Amount_O);
             break;
         default:
             break;
@@ -186,9 +196,13 @@ void subMenu(int size, const std::string *textarray, int type)
             return;
             break;
         case 1:
+            std::cout << "Digite o ID da pessoa: " << std::endl;
+            input = choiceInput(0, 2000000000);
             printP(listaPessoas, input, Amount_P);
             break;
         case 2:
+            std::cout << "Digite o ID da ocorrencia: " << std::endl;
+            input = choiceInput(0, 2000000000);
             printO(listaOcorrencias, input, Amount_O);
             break;
         default:
@@ -211,7 +225,7 @@ void listEvidenceMenu()
     }
     else
     {
-        printCorrelation(interconnection, listaEvidencias, input, Amount_R);
+        printCorrelation(interconnection, listaEvidencias, input, Usedinterconnection);
     }
 }
 
@@ -226,6 +240,6 @@ void analyzeCaseMenu()
     }
     else
     {
-        analyzeCase(listaOcorrencias, Amount_O, input, interconnection, Amount_R);
+        analyzeCase(listaOcorrencias, Amount_O, input, interconnection, Usedinterconnection);
     }
 }

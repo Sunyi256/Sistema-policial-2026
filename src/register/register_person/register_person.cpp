@@ -1,4 +1,5 @@
 #include "register_person.h"
+#include "../register_input/register_input.h"
 #include <cstdlib>
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[])
 {
@@ -24,11 +25,9 @@ bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoa
     int indice = quantidadePessoas;
     std::cout << "Digite o nome da pessoa: " << std::endl;
     std::string nome;
-    std::getline(std::cin, nome);
-    while (nome.find_first_not_of(' ') == std::string::npos)
+    if (!readText("O nome", nome))
     {
-        std::cout << "O nome nao pode ficar vazio. Digite novamente: " << std::endl;
-        std::getline(std::cin, nome);
+        return false;
     }
     std::cout << "Digite a idade da pessoa: " << std::endl;
     int idade;
@@ -45,11 +44,9 @@ bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoa
     {
     }
     std::string cidade;
-    std::getline(std::cin, cidade);
-    while (cidade.find_first_not_of(' ') == std::string::npos)
+    if (!readText("A cidade", cidade))
     {
-        std::cout << "A cidade nao pode ficar vazia. Digite novamente: " << std::endl;
-        std::getline(std::cin, cidade);
+        return false;
     }
 
     listaPessoas[indice].id = indice;
@@ -57,6 +54,6 @@ bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoa
     listaPessoas[indice].nome = nome;
     listaPessoas[indice].cidade = cidade;
     quantidadePessoas++;
-    std::cout << "Pessoa cadastrada com sucesso" << std::endl;
+    std::cout << "Pessoa cadastrada com sucesso. ID: " << listaPessoas[indice].id << std::endl;
     return true;
 }

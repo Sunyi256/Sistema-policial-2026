@@ -1,4 +1,5 @@
 #include "sort_insert.h"
+#include "../../structs/structs.h"
 
 void insert(int vetor[], int tamanho)
 {
@@ -32,3 +33,6 @@ void insert_Compare(T vetor[], int tamanho, Compare compare)
         vetor[j + 1] = chave;
     }
 }
+
+// instanciacao explicita: o template esta neste .cpp, entao o compilador precisa gerar aqui a versao usada em sort_case.cpp
+template void insert_Compare<Ocorrencia, bool (*)(const Ocorrencia &, const Ocorrencia &)>(Ocorrencia vetor[], int tamanho, bool (*compare)(const Ocorrencia &, const Ocorrencia &));

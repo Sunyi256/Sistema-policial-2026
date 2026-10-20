@@ -2,7 +2,7 @@
 
 int sumRelevance(relation list[], int n, int idOcorrencia)
 {
-    if (n == 0) // 
+    if (n == 0) 
     {
         return 0;
     }

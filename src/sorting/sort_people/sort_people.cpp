@@ -29,7 +29,7 @@ int compareStrings(const char *a, const char *b)
     }
 }
 
-int compareByCity(const Pessoa &a, const Pessoa &b)
+bool compareByCity(const Pessoa &a, const Pessoa &b)
 {
     return compareStrings(a.cidade.c_str(), b.cidade.c_str()) < 0;
 }

@@ -3,7 +3,7 @@
 int recursivEvidence(relation list [],int n, int idoccurrence)
 {
     int accumulator = 0;
-    if(n == 0)
+    if(n < 0)
     {
         return 0;
     }

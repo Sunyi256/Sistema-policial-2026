@@ -14,6 +14,6 @@
 #include <string>
 
 // func REGISTER EVIDENCE
-void cadastrandoEvidenciaAleatoria(int quantidadeProvas, struct Evidencia listaProvas[]); // O(n)
-bool cadastrandoEvidenciaManual(struct Evidencia listaProvas[], int &quantidadeProvas);   // O(n)
+void cadastrandoEvidenciaAleatoria(int quantidade, struct Evidencia listaEvidencias[], int &quantidadeEvidencias, struct Ocorrencia listaOcorrencias[], int quantidadeOcorrencias); // O(n)
+bool cadastrandoEvidenciaManual(struct Evidencia listaEvidencias[], int &quantidadeEvidencias, struct Ocorrencia listaOcorrencias[], int quantidadeOcorrencias);   // O(n)
 #endif

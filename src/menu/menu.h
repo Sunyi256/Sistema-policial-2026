@@ -26,7 +26,7 @@
 void menu();                                                    // O(n)
 void printMenu(int size, const std::string *textarray);         // O(n)
 void printSeparator();                                          // O(n)
-void choiceMenu();                                              // O(n)
+bool choiceMenu();                                              // O(n)
 int choiceInput(int min, int max);                              // O(n)
 void subMenu(int size, const std::string *textarray, int type); // O(n)
 void listEvidenceMenu();                                        // O(n)
