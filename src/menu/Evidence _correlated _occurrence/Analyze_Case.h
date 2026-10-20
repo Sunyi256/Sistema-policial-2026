@@ -1,7 +1,7 @@
 #ifndef ANALYZE_CASE_H
 #define ANALYZE_CASE_H
-#include "src/structs/structs.h"
-#include "src/search/search.h"
+#include "../../structs/structs.h"
+#include "../../search/search.h"
 #include <iostream>
 
 int sumRelevance(relation list[], int n, int idOcorrencia);

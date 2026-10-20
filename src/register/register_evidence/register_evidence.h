@@ -6,7 +6,7 @@
 #define MAX_EVIDENCIAS 100
 
 // our own libraries
-#include "src/structs/structs.h"
+#include "../../structs/structs.h"
 
 // c libraries
 #include <iostream>

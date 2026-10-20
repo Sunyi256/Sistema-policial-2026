@@ -1,4 +1,4 @@
-#include "src\menu\menu.h"
+#include "menu.h"
 #define MENUTEXT 6
 #define REGISTERMENU 3
 #define SEARCHMENU 3
@@ -10,13 +10,13 @@ const std::string textRegisterMenu[REGISTERMENU] = {"Cadastrar Pessoas", "Cadast
 const std::string textSearchMenu[SEARCHMENU] = {"Buscar Pessoas", "Buscar Ocorrencias"};
 const std::string textSortMenu[SORTMENU] = {"Ordenar pessoas", "Ordenar ocorrencias"};
 // global variable arrays, if you are gonna use them remember to add extern on the other files
-int Amount_P = 0, Amount_O = 0, Amount_E = 0,Amount_R = 0, Usedinterconnection = 0;
+int Amount_P = 0, Amount_O = 0, Amount_E = 0, Amount_R = 0, Usedinterconnection = 0;
 Pessoa *listaPessoas = new Pessoa[Amount_P];
 Ocorrencia *listaOcorrencias = new Ocorrencia[Amount_O];
 Evidencia *listaEvidencias = new Evidencia[Amount_E];
 relation *interconnection = new relation[Amount_R];
 
-// functions 
+// functions
 
 void DeleteArrays()
 {
@@ -59,7 +59,7 @@ void printSeparator()
 
 void choiceMenu()
 {
-    int input = choiceInput(0, 11);
+    int input = choiceInput(0, MENUTEXT);
     printSeparator();
     switch (input)
     {
@@ -114,83 +114,83 @@ void subMenu(int size, const std::string *textarray, int type)
     switch (type)
     {
     case 0:
-        std::cout<<"O que você quer cadastrar? \n";
+        std::cout << "O que você quer cadastrar? \n";
         printMenu(size, textarray);
-        subtype = choiceInput(0,3);
+        subtype = choiceInput(0, 3);
         switch (subtype)
         {
-        case  0:
+        case 0:
             return;
             break;
-        case  1:
-                cadastrandoPessoaManual(listaPessoas, Amount_P);
+        case 1:
+            cadastrandoPessoaManual(listaPessoas, Amount_P);
             break;
-        case  2:
-                cadastrandoOcorrenciaManual(listaOcorrencias, Amount_O);
+        case 2:
+            cadastrandoOcorrenciaManual(listaOcorrencias, Amount_O);
             break;
-        case  3:
-                cadastrandoEvidenciaManual(listaEvidencias, Amount_E);
+        case 3:
+            cadastrandoEvidenciaManual(listaEvidencias, Amount_E);
             break;
         default:
             break;
         }
         break;
     case 1:
-        std::cout<<"O que você quer ordenar? \n";
+        std::cout << "O que você quer ordenar? \n";
         printMenu(size, textarray);
-        subtype = choiceInput(0,2);
+        subtype = choiceInput(0, 2);
         switch (subtype)
         {
-        case  0:
+        case 0:
             return;
             break;
-        case  1:
-                std::cout<<"Como você deseja ordenar? \n";
-                std::cout<<"0 - ID \n";
-                std::cout<<"1 - Nome \n";
-                input = choiceInput(0,1);
-                if (!input)
-                {
-                    sortpeople::sortById(listaPessoas, Amount_P);
-                }
-                else
-                {
-                    sortpeople::sortByName(listaPessoas, Amount_P);
-                }
+        case 1:
+            std::cout << "Como você deseja ordenar? \n";
+            std::cout << "0 - ID \n";
+            std::cout << "1 - Nome \n";
+            input = choiceInput(0, 1);
+            if (!input)
+            {
+                sortById(listaPessoas, Amount_P);
+            }
+            else
+            {
+                sortByName(listaPessoas, Amount_P);
+            }
             break;
-        case  2:
-                std::cout<<"Como você deseja ordenar? \n";
-                std::cout<<"0 - ID \n";
-                std::cout<<"1 - Gravidade \n";
-                input = choiceInput(0,1);
-                if (!input)
-                {
-                    sortocc::sortById(listaOcorrencias, Amount_O);
-                }
-                else
-                {
-                    sortocc::sortBySeverity(listaOcorrencias, Amount_O);
-                }
+        case 2:
+            std::cout << "Como você deseja ordenar? \n";
+            std::cout << "0 - ID \n";
+            std::cout << "1 - Gravidade \n";
+            input = choiceInput(0, 1);
+            if (!input)
+            {
+                sortById(listaOcorrencias, Amount_O);
+            }
+            else
+            {
+                sortBySeverity(listaOcorrencias, Amount_O);
+            }
             break;
         default:
             break;
         }
         break;
     case 2:
-        std::cout<<"O que você quer pequisar? \n";
+        std::cout << "O que você quer pequisar? \n";
         printMenu(SEARCHMENU, textSearchMenu);
-        subtype = choiceInput(0,2);
+        subtype = choiceInput(0, 2);
         switch (subtype)
         {
-        case  0:
+        case 0:
             return;
             break;
-        case  1:
-                printP(listaPessoas, input, Amount_P);
+        case 1:
+            printP(listaPessoas, input, Amount_P);
             break;
-        case  2:
-                printO(listaOcorrencias, input, Amount_O);
-        break;
+        case 2:
+            printO(listaOcorrencias, input, Amount_O);
+            break;
         default:
             break;
         }
@@ -202,7 +202,7 @@ void subMenu(int size, const std::string *textarray, int type)
 
 void listEvidenceMenu()
 {
-    std::cout<<"Digite o ID da ocorrencia, ou digite -1 para sair \n";
+    std::cout << "Digite o ID da ocorrencia, ou digite -1 para sair \n";
     int input;
     input = choiceInput(-1, Amount_O);
     if (input == -1)
@@ -211,13 +211,13 @@ void listEvidenceMenu()
     }
     else
     {
-      printCorrelation(interconnection, listaEvidencias, input, Amount_R);
+        printCorrelation(interconnection, listaEvidencias, input, Amount_R);
     }
 }
 
 void analyzeCaseMenu()
 {
-    std::cout<<"Digite o ID da ocorrencia, ou digite -1 para sair \n";
+    std::cout << "Digite o ID da ocorrencia, ou digite -1 para sair \n";
     int input;
     input = choiceInput(-1, Amount_O);
     if (input == -1)
@@ -226,6 +226,6 @@ void analyzeCaseMenu()
     }
     else
     {
-      analyzeCase(listaOcorrencias,Amount_O, input, interconnection, Amount_R);
+        analyzeCase(listaOcorrencias, Amount_O, input, interconnection, Amount_R);
     }
 }

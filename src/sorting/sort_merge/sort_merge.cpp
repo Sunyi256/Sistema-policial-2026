@@ -112,8 +112,8 @@ void merge_Compare(T v[], int inicio, int fim, Compare compare)
     if (inicio < fim)
     {
         int meio = inicio + (fim - inicio) / 2;
-        merge_Comparare(v, inicio, meio, compare);
-        merge_Comparare(v, meio + 1, fim, compare);
+        merge_Compare(v, inicio, meio, compare);
+        merge_Compare(v, meio + 1, fim, compare);
         merge(v, inicio, meio, fim, compare);
     }
 }

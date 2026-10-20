@@ -1,6 +1,6 @@
 #ifndef SEARCH_H
 #define SEARCH_H
-#include "src/structs/structs.h"
+#include "../structs/structs.h"
 namespace linear 
 {
     int LinearsearchPerson (Pessoa list[], int id, int size);

@@ -1,6 +1,6 @@
 #ifndef REGISTER_PERSON_H
 #define REGISTER_PERSON_H
-#include "src/structs/structs.h"
+#include "../../structs/structs.h"
 #include <iostream>
 
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[]);

@@ -1,5 +1,4 @@
 #include "register_person.h"
-#include <limits>
 #include <cstdlib>
 void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPessoas[])
 {
@@ -10,7 +9,7 @@ void cadastrandoPessoasAleatorias(int quantidadePessoas, struct Pessoa listaPess
         listaPessoas[i].id = i;
         listaPessoas[i].nome = nomes[rand() % 6];
         listaPessoas[i].idade = rand() % 100;
-        listaPessoas[i].cidade = cidades[rand() % 19]; 
+        listaPessoas[i].cidade = cidades[rand() % 19];
     }
 }
 
@@ -18,7 +17,7 @@ bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoa
 {
     if (quantidadePessoas == MAX_P)
     {
-        std::cout << "O limite de pessoas cadastradas foi atingido. Feche o programa." << std::endl; 
+        std::cout << "O limite de pessoas cadastradas foi atingido. Feche o programa." << std::endl;
         return false;
     }
 
@@ -26,26 +25,30 @@ bool cadastrandoPessoaManual(struct Pessoa listaPessoas[], int &quantidadePessoa
     std::cout << "Digite o nome da pessoa: " << std::endl;
     std::string nome;
     std::getline(std::cin, nome);
-    while (nome.find_first_not_of(' ') == std::string::npos) 
+    while (nome.find_first_not_of(' ') == std::string::npos)
     {
-        std::cout << "O nome nao pode ficar vazio. Digite novamente: " << std:: endl;
+        std::cout << "O nome nao pode ficar vazio. Digite novamente: " << std::endl;
         std::getline(std::cin, nome);
     }
     std::cout << "Digite a idade da pessoa: " << std::endl;
     int idade;
-    while (!(std::cin >> idade) || idade < 0 || idade > 120) 
+    while (!(std::cin >> idade) || idade < 0 || idade > 120)
     {
-        std::cin.clear(); 
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
+        while (std::cin.get() != '\n' && std::cin)
+        {
+        }
         std::cout << "Idade invalida (0 a 120). Digite novamente: " << std::endl;
     }
     std::cout << "Digite a cidade da pessoa: " << std::endl;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    while (std::cin.get() != '\n' && std::cin)
+    {
+    }
     std::string cidade;
     std::getline(std::cin, cidade);
-    while (cidade.find_first_not_of(' ') == std::string::npos) 
+    while (cidade.find_first_not_of(' ') == std::string::npos)
     {
-        std::cout << "A cidade nao pode ficar vazia. Digite novamente: " << std::endl ;
+        std::cout << "A cidade nao pode ficar vazia. Digite novamente: " << std::endl;
         std::getline(std::cin, cidade);
     }
 
