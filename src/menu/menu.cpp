@@ -1,7 +1,7 @@
 #include "menu.h"
 #define MENUTEXT 5
 #define REGISTERMENU 3
-#define SEARCHMENU 3
+#define SEARCHMENU 2
 #define SORTMENU 2
 
 // array menu
